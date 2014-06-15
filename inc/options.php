@@ -69,7 +69,7 @@
             <div>Customizable popup on site load, easily integrates with your contact or subscribe forms</div>
         </div>
         <div class="right">
-            <a href="http://smartcatdesign.net/wp-construction-mode-pro-wordpress-plugin/" target="_blank" class="button-primary" style="padding: 40px;line-height: 0;font-size: 20px">GO PRO NOW</a>
+            <!--<a href="http://smartcatdesign.net/wp-construction-mode-pro-wordpress-plugin/" target="_blank" class="button-primary" style="padding: 40px;line-height: 0;font-size: 20px">GO PRO NOW</a>-->
         </div>
     </div>
     <div class="width25 right">

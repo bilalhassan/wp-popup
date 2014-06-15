@@ -30,8 +30,7 @@ add_action('wp_dashboard_setup', 'wptutsplus_add_dashboard_widgets');
 function wptutsplus_add_dashboard_widgets() {
     wp_add_dashboard_widget('wptutsplus_dashboard_links', 'Smartcat Plugins', 'wptutsplus_add_links_widget');
 }
-function wptutsplus_add_links_widget() {
-    ?>
+function wptutsplus_add_links_widget() { ?>
     Thank you for downloading our WP Popup plugin. We have other plugins that you might enjoy.
     Click to download them for free!
     <ul>
@@ -48,4 +47,14 @@ function sc_popup_menu(){
 }
 function sc_popup_options(){
     include_once 'inc/options.php';
+}
+
+add_action('wp_head','show_popup');
+function show_popup(){
+    wp_register_style( 'sc_popup_style', plugins_url() . '/wp-popup/style/popup.css', false, '1.0' );
+    wp_register_style( 'sc_popup_font', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600', false);
+
+    wp_enqueue_style( 'sc_popup_font' );
+    wp_enqueue_style( 'sc_popup_style' );
+    include_once 'inc/popup.php';
 }

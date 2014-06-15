@@ -1,0 +1,42 @@
+/* 
+    Document   : popup
+    Created on : Jun 15, 2014, 1:21:48 AM
+    Author     : Bilal
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+#sc-popup-dim{
+    font-family: 'Open Sans', sans-serif;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #464646;
+    background: rgba(50,50,50,0.7);
+    z-index: 9999;
+}
+#sc-popup{
+    background: #ffffff;
+    width: 300px;
+    min-height: 150px;
+    margin: auto;
+    z-index: 99991;
+    position: fixed;
+    top: 150px;
+    left: 50%;
+    margin-left: -150px;
+    padding: 15px;
+    box-shadow: 0 0 10px #111111;
+    -moz-box-shadow: 0 0 10px #111111;
+    -webkit-box-shadow: 0 0 10px #111111;
+}
+#sc-close{
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
