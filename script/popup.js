@@ -1,7 +1,4 @@
 jQuery(document).ready(function($) {
-
-
-
     var margin = 0;
     $('#sc-popup-dim').delay(1500).fadeIn(300, function() {
         margin = $('#sc-popup').width()/2;
@@ -13,5 +10,4 @@ jQuery(document).ready(function($) {
             $('#sc-popup-dim').fadeOut(300);
         });
     });
-
 });

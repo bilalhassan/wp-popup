@@ -70,4 +70,47 @@ root {
     text-decoration: none;
     color: #ffffff;
     background: #005580;
+    transition: 0.2s all ease-in-out;
+    -moz-transition: 0.2s all ease-in-out;
+    -webkit-transition: 0.2s all ease-in-out;     
+}
+.sc-popup-cta a:hover{
+    background: #404040;
+}
+
+#sc-popup input[type='text'],
+#sc-popup input[type='email']{
+    outline: none;
+    border-radius: 0;
+    transition: 0.2s all ease-in-out;
+    -moz-transition: 0.2s all ease-in-out;
+    -webkit-transition: 0.2s all ease-in-out;    
+}
+#sc-popup input[type='text']:focus,
+#sc-popup input[type='email']:focus{
+    border: 1px solid #005580;
+    box-shadow: 0 0 3px #005580;
+    -moz-box-shadow: 0 0 3px #005580;
+    -webkit-box-shadow: 0 0 3px #005580;
+}
+
+#sc-popup input[type='submit']{
+    background: #005580;
+    color: #ffffff;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    text-shadow: none;
+    border-radius: 0;
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 5px 7px;
+    transition: 0.2s all ease-in-out;
+    -moz-transition: 0.2s all ease-in-out;
+    -webkit-transition: 0.2s all ease-in-out;
+}
+#sc-popup input[type='submit']:hover{
+    background: #404040;
 }
