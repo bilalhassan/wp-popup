@@ -10,9 +10,10 @@ root {
     display: block;
 }
 .right{ float: right;}
-.left{ float: left;}
+.left{ float: left;box-sizing: border-box;}
 .width30{ width: 30%;}
 .width70{ width: 70%;}
+.width50{ width: 50%;}
 #sc-popup-dim{
     display: none;
     position: fixed;
@@ -41,6 +42,14 @@ root {
     -moz-box-shadow: 0 0 10px #111111;
     -webkit-box-shadow: 0 0 10px #111111;
     color: #404040;
+}
+.sc-popup-media{
+    padding: 0 10px;
+    text-align: center;
+    margin: 0 auto;
+}
+.sc-popup-media img{
+    width: 80%;
 }
 #sc-close{
     position: absolute;

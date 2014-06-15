@@ -15,6 +15,34 @@
 register_activation_hook(__FILE__, 'my_plugin_activate');
 function my_plugin_activate() {
     add_option('sc_popup_activation_redirect', true);
+    sc_popup_register_options();
+}
+
+function sc_popup_register_options(){
+    // declare options array
+    $sc_popup_options = array(
+        'sc_popup_title' => 'Popup Title',
+        'sc_popup_subtitle' => 'Popup subtitle',
+        'sc_popup_cta_text' => 'Click Here',
+        'sc_popup_cta_url' => 'http://smartcatdesign.net',
+        'sc_popup_media_type' => '',
+        'sc_popup_media_link' => '',
+        'sc_popup_mode' => 'test',
+        'sc_popup_page' => 'all',
+        'sc_popup_days' => '7',
+        'sc_popup_color' => '#005580',
+        'sc_popup_facebook' => 'http://smartcatdesign.net',
+        'sc_popup_twitter' => 'http://smartcatdesign.net',
+        'sc_popup_gplus' => 'http://smartcatdesign.net',
+        'sc_popup_linkedin' => 'http://smartcatdesign.net',
+        'sc_popup_shortcode' => null
+    );
+    // check if option is set, if not, add it
+    foreach($sc_popup_options as $option_name => $option_value){
+        if(get_option($option_name) === false){
+            add_option($option_name,$option_value);
+        }
+    }
 }
 
 add_action('admin_init', 'sc_popup_activation_redirect');
