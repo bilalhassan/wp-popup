@@ -14,3 +14,12 @@ This plugin also allows you to embed an image or a youtube video, and place link
 * Install the plugin on your WordPress site directly from the Plugins page in the WordPress dashboard, or download the zip file from by clicking **Download Zip** on the right ->
 * Upload the zip file to your plugins directory, or upload it directly from the Wordpress dashboard
 * In WordPress go to Settings -> WP Popup Settings and select the options that meet your needs
+
+## Newsletter Integration
+You can use this plugin to display a form that you have already created with another plugin, such as **Mailchimp, Gravity Forms, Contact Form 7** or any other plugin that utilizes shortcodes.
+
+### Mailchimp
+* To setup mailchimp, I recommend using [Mailchimp for WordPress plugin](http://wordpress.org/plugins/mailchimp-for-wp/). Once setup, the plugin will give you a shortcode, copy that shortcode and paste it in the Shortcode option of the WP Popup settings page
+
+## Social Media Links
+The plugin allows you to enter the URL's of your social media pages, enter the URLs, adn the social icons will appear in the popup
