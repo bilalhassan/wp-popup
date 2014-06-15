@@ -56,5 +56,7 @@ function show_popup(){
 
     wp_enqueue_style( 'sc_popup_font' );
     wp_enqueue_style( 'sc_popup_style' );
+    
+    wp_enqueue_script('sc_popup_script', plugins_url() . '/wp-popup/script/popup.js', array('jquery'), '1.0');
     include_once 'inc/popup.php';
 }

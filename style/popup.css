@@ -9,8 +9,12 @@
 root { 
     display: block;
 }
+.right{ float: right;}
+.left{ float: left;}
+.width30{ width: 30%;}
+.width70{ width: 70%;}
 #sc-popup-dim{
-    font-family: 'Open Sans', sans-serif;
+    display: none;
     position: fixed;
     left: 0;
     top: 0;
@@ -21,22 +25,49 @@ root {
     z-index: 9999;
 }
 #sc-popup{
+    display: none;
+    font-family: 'Open Sans', sans-serif;
     background: #ffffff;
-    width: 300px;
+    min-width: 300px;
+    max-width: 500px;
     min-height: 150px;
     margin: auto;
     z-index: 99991;
     position: fixed;
     top: 150px;
     left: 50%;
-    margin-left: -150px;
     padding: 15px;
     box-shadow: 0 0 10px #111111;
     -moz-box-shadow: 0 0 10px #111111;
     -webkit-box-shadow: 0 0 10px #111111;
+    color: #404040;
 }
 #sc-close{
     position: absolute;
-    right: 5px;
-    top: 0;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+}
+#sc-close img{
+    width: 30px;
+}
+.sc-popup-title{
+    margin: -15px -15px 20px -15px;
+    background: #005580;
+    text-align: center;
+    color: #ffffff;
+    padding: 10px;
+}
+.sc-popup-subtitle{
+    border-bottom: 1px dashed #f0f0f0;
+}
+.sc-popup-cta{
+    text-align: center;
+    margin-top: 10px;
+}
+.sc-popup-cta a{
+    padding: 5px 7px;
+    text-decoration: none;
+    color: #ffffff;
+    background: #005580;
 }
