@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: WP Popup
+  Plugin Name: WP Timed Popup
   Plugin URI: http://smartcatdesign.net/wp-popup
   Description: WordPress popup is a timed popup box that shows up on your website, and can be used as a call to action to display products, sign up for newsletters, and mainly to get the attention of your website visitors in an appealing and non-intrusive manner.
   Version: 1.0
