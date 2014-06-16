@@ -78,12 +78,12 @@ function sc_popup_options(){
 
 add_action('wp_head','show_popup');
 function show_popup(){
-    wp_register_style( 'sc_popup_style', plugins_url() . '/wp-popup/style/popup.css', false, '1.0' );
+    wp_register_style( 'sc_popup_style', plugins_url() . '/wp-timed-popup/style/popup.css', false, '1.0' );
     wp_register_style( 'sc_popup_font', 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600', false);
 
     wp_enqueue_style( 'sc_popup_font' );
     wp_enqueue_style( 'sc_popup_style' );
     
-    wp_enqueue_script('sc_popup_script', plugins_url() . '/wp-popup/script/popup.js', array('jquery'), '1.0');
+    wp_enqueue_script('sc_popup_script', plugins_url() . '/wp-timed-popup/script/popup.js', array('jquery'), '1.0');
     include_once 'inc/popup.php';
 }

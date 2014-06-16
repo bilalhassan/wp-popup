@@ -7,7 +7,7 @@
 ?>
 <div id="sc-popup-dim">
     <div id="sc-popup">
-        <div id="sc-close"><img src="<?php echo plugins_url(); ?>/wp-popup/images/close.png"/></div>
+        <div id="sc-close"><img src="<?php echo plugins_url(); ?>/wp-timed-popup/images/close.png"/></div>
         <div class="sc-popup">
             <div class="sc-popup-title">
                 <?php echo get_option('sc_popup_title'); ?>
