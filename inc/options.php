@@ -76,18 +76,36 @@
         <table class="widefat">
             <thead>
                 <tr>
-                    <th><?php _e("Support") ?></th>
+                    <th><b>Looking for Support?</b> </th>
                 </tr>
                 <tr>
                     <td>
-                        <?php
-                        _e("Do you have any questions ? Do you need any help ? Let us know on our website!");
-                        ?>
+                        If you have any questions, please head to my <a target="_blank" href="http://smartcatdesign.net/support/">website</a>, or use the <a target="_blank" href="#">support forums</a> on WordPress.org. <br><br>
+                        If you need priority support, or specific customization, please <a href="#">upgrade to the pro version.</a>
                     </td>
                 </tr>
-                <tr>
+<!--                <tr>
                     <td class='center'>
                         <a href='http://smartcatdesign.net/under-construction-maintenance-mode-free-wordpress-plugin/' target='_blank' class='button-primary'>Support</a>
+                        <a href='http://smartcatdesign.net/under-construction-maintenance-mode-free-wordpress-plugin/' target='_blank' class='button-primary'>Go Pro</a>
+                    </td>
+                </tr>-->
+            </thead>
+        </table>
+        <table class="widefat">
+            <thead>
+                <tr>
+                    <th>
+                        <b>Show your appreciation</b>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>- <a href="#" target="_blank">Leave ★★★★★ rating on WordPress.org</a></li>
+                            <li>- Write a comment on the <a href="https://www.facebook.com/SmartcatDesign" target="_blank">Facebook Page</a></li>
+                        </ul>
+                        
                     </td>
                 </tr>
             </thead>
@@ -95,17 +113,22 @@
         <table class="widefat">
             <thead>
                 <tr>
-                    <th><?php // _e("Pro Version") ?> <span class='proversion'></span></th>
+                    <th>
+                        <b>About the Developer</b>
+                    </th>
                 </tr>
                 <tr>
                     <td>
-                        <?php
-//                            _e("With the pro version, you get the ability to add cool animations, and additional icons for Instagram, Digg, Flickr, Skype, Tumblr and Youtube");
-                        ?>
+                        My name is Bilal Hassan, from Kingston, Ontario, Canada. I am a web developer, and WordPress is my favorite framework. I love making plugins
+                        that help you add cool and user-friendly features to your website. I also make WordPress themes.<br><br>
+                        Take a look at my website and other plugins, I also develop WordPress themes.<br><br>
+                        I know the WordPress framework very well, if you need help with customization or development, I am available for hire :)<br><br>
+                        Please like my Facebook page to keep up to date with my plugins and themes.<br><br>
+                        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FSmartcatDesign&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35&amp;appId=233286813420319" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:35px;" allowTransparency="true"></iframe>                        
                     </td>
                 </tr>
             </thead>
-        </table>
+        </table>        
     </div>
     <div class="width70 left">
         <form name="post_form" method="post" action="" enctype="multipart/form-data">
@@ -117,12 +140,46 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><?php _e('Set Under Construction') ?></td>
+                        <td>Title</td>
                         <td>
-                            <select name="set_opt" id="set_opt">
-                                
+                            <input type="text" name="sc_popup_title" value="<?php echo get_option('sc_popup_title'); ?>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Description Text</td>
+                        <td>
+                            <textarea name="sc_popup_subtitle"><?php echo get_option('sc_popup_subtitle'); ?></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Button Text</td>
+                        <td>
+                            <input type="text" name="sc_popup_cta_text" value="<?php echo get_option('sc_popup_cta_text'); ?>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Button URL</td>
+                        <td>
+                            <input type="text" name="sc_popup_cta_url" value="<?php echo get_option('sc_popup_cta_url'); ?>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Add Media</td>
+                        <td>
+                            <select name="sc_popup_media_type">
+                                <option value="none" <?php echo (get_option('sc_popup_media_type') == 'none') ? 'selected=selected' : ''; ?>>None</option>
+                                <option value="image" <?php echo (get_option('sc_popup_media_type') == 'image') ? 'selected=selected' : ''; ?>>Image</option>
+                                <option value="video" <?php echo (get_option('sc_popup_media_type') == 'video') ? 'selected=selected' : ''; ?>>Video</option>
                             </select>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Image URL / Video Embed Code
+                        </td>
+                        <td>
+                            <input type="text" name="sc_popup_media_link" value="<?php get_option('sc_popup_media_link'); ?>"/>
+                        </td>                        
                     </tr>
                 </tbody>
 

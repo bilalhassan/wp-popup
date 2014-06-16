@@ -11,7 +11,6 @@
 ?>
 
 <?php
-
 register_activation_hook(__FILE__, 'my_plugin_activate');
 function my_plugin_activate() {
     add_option('sc_popup_activation_redirect', true);
@@ -25,7 +24,7 @@ function sc_popup_register_options(){
         'sc_popup_subtitle' => 'Popup subtitle',
         'sc_popup_cta_text' => 'Click Here',
         'sc_popup_cta_url' => 'http://smartcatdesign.net',
-        'sc_popup_media_type' => '',
+        'sc_popup_media_type' => 'none',
         'sc_popup_media_link' => '',
         'sc_popup_mode' => 'test',
         'sc_popup_page' => 'all',
