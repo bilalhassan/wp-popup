@@ -30,7 +30,6 @@ root {
     font-family: 'Open Sans', sans-serif;
     background: #ffffff;
     min-width: 300px;
-    max-width: 500px;
     min-height: 150px;
     margin: auto;
     z-index: 99991;
@@ -88,7 +87,7 @@ root {
     -webkit-transition: 0.2s all ease-in-out;     
 }
 .sc-popup-cta a:hover{
-    background: #404040;
+    background: #404040 !important;
 }
 
 #sc-popup input[type='text'],

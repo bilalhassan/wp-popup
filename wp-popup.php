@@ -26,32 +26,41 @@ function sc_popup_register_options(){
         'sc_popup_cta_url' => 'http://smartcatdesign.net',
         'sc_popup_media_type' => 'none',
         'sc_popup_media_link' => '',
+        'sc_popup_width' => '400',
 //        'sc_popup_mode' => 'test',
 //        'sc_popup_page' => 'all',
 //        'sc_popup_days' => '7',
-//        'sc_popup_color' => '#005580',
+        'sc_popup_color' => '#005580',
 //        'sc_popup_facebook' => 'http://smartcatdesign.net',
 //        'sc_popup_twitter' => 'http://smartcatdesign.net',
 //        'sc_popup_gplus' => 'http://smartcatdesign.net',
 //        'sc_popup_linkedin' => 'http://smartcatdesign.net',
-//        'sc_popup_shortcode' => null
+        'sc_popup_shortcode' => ''
     );
     // check if option is set, if not, add it
     foreach($sc_popup_options as $option_name => $option_value){
         if(get_option($option_name) === false){
             add_option($option_name,$option_value);
         }else{
-            update_option($option_name,$_POST[$option_name]);
+            update_option($option_name,  addslashes($_POST[$option_name]));
         }
     }
 }
 
+// redirect when activated
 add_action('admin_init', 'sc_popup_activation_redirect');
 function sc_popup_activation_redirect() {
     if (get_option('sc_popup_activation_redirect', false)) {
         delete_option('sc_popup_activation_redirect');
         wp_redirect(admin_url() . 'options-general.php?page=wp-popup.php');
     }
+}
+
+// add js to admin
+add_action( 'admin_enqueue_scripts', 'admin_enqueue_scripts' );
+function admin_enqueue_scripts(){
+    wp_enqueue_script('sc_popup_admin_script', plugins_url() . '/wp-timed-popup/jscolor/jscolor.js', array('jquery'), '1.0');
+
 }
 
 // add new dashboard widgets
@@ -100,5 +109,6 @@ function show_popup(){
     wp_enqueue_style( 'sc_popup_style' );
     
     wp_enqueue_script('sc_popup_script', plugins_url() . '/wp-timed-popup/script/popup.js', array('jquery'), '1.0');
+
     include_once 'inc/popup.php';
 }

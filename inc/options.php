@@ -1,10 +1,4 @@
 <style>
-    .left{ float: left;}
-    .right {float: right;}
-    .center{text-align: center;}
-    .width70{ width: 70%;}
-    .width25{ width: 25%;}
-    .width50{ width: 50%;}
     #gopro{
         width: 100%;
         display: block;
@@ -60,6 +54,12 @@
     .choose-progress{
         display: none;
     }
+    .left{ float: left;}
+    .right {float: right;}
+    .center{text-align: center;}
+    .width70{ width: 70%;}
+    .width25{ width: 25% !important;}
+    .width50{ width: 50%;}    
 </style>
 
 <div id="wrapper">
@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="width25 right">
-        
+
         <table class="widefat">
             <thead>
                 <tr>
@@ -106,7 +106,7 @@
                             <li>- <a href="#" target="_blank">Leave ★★★★★ rating on WordPress.org</a></li>
                             <li>- Write a comment on the <a href="https://www.facebook.com/SmartcatDesign" target="_blank">Facebook Page</a></li>
                         </ul>
-                        
+
                     </td>
                 </tr>
             </thead>
@@ -136,7 +136,7 @@
             <table class="widefat">
                 <thead>
                     <tr>
-                        <th colspan="2">General Settings</th>
+                        <th colspan="2"><b>General Settings</b></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -149,7 +149,13 @@
                     <tr>
                         <td>Description Text</td>
                         <td>
-                            <textarea name="sc_popup_subtitle"><?php echo get_option('sc_popup_subtitle'); ?></textarea>
+                            <textarea rows="10" cols="20" name="sc_popup_subtitle"><?php echo get_option('sc_popup_subtitle'); ?></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Button Link/URL<br><em>Leave blank if you don't want a button</em></td>
+                        <td>
+                            <input type="text" name="sc_popup_cta_url" value="<?php echo get_option('sc_popup_cta_url'); ?>"/>
                         </td>
                     </tr>
                     <tr>
@@ -159,31 +165,66 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Button URL</td>
-                        <td>
-                            <input type="text" name="sc_popup_cta_url" value="<?php echo get_option('sc_popup_cta_url'); ?>"/>
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Add Media</td>
                         <td>
                             <select name="sc_popup_media_type">
                                 <option value="none" <?php echo (get_option('sc_popup_media_type') == 'none') ? 'selected=selected' : ''; ?>>None</option>
                                 <option value="image" <?php echo (get_option('sc_popup_media_type') == 'image') ? 'selected=selected' : ''; ?>>Image</option>
-                                <option value="video" <?php echo (get_option('sc_popup_media_type') == 'video') ? 'selected=selected' : ''; ?>>Video</option>
+                                <!--<option value="video" <?php echo (get_option('sc_popup_media_type') == 'video') ? 'selected=selected' : ''; ?>>Video</option>-->
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            Image URL / Video Embed Code
+                            Image Path/URL
                         </td>
                         <td>
-                            <input type="text" name="sc_popup_media_link" value="<?php echo get_option('sc_popup_media_link'); ?>"/>
+                            <input type="text" name="sc_popup_media_link" value="<?php echo stripslashes(get_option('sc_popup_media_link')); ?>"/>
                         </td>                        
                     </tr>
                 </tbody>
-
+            </table>
+            <table class="widefat">
+                <thead>
+                    <tr>
+                        <th colspan="2"><b>Shortcode</b></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <em>Here's where you enter any shortcode, like forms, mailchimp, gravity forms, campaign monitor, social sharing shortcodes etc..</em></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Shortcode</td>
+                        <td>
+                            <input type="text" name="sc_popup_shortcode" value="<?php echo get_option('sc_popup_shortcode'); ?>"
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="widefat">
+                <thead>
+                    <tr>
+                        <th colspan="2"><b>Appearance</b></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <em>Change the look</em></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Color</td>
+                        <td>
+                            <input type="text" class="wp_popup_color width25" id="bg_colorbox" name="sc_popup_color" value="<?php echo get_option('sc_popup_color'); ?>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Width</td>
+                        <td>
+                            <input type="text" class="width25" name="sc_popup_width" value="<?php echo get_option('sc_popup_width'); ?>"/>px
+                        </td>
+                    </tr>
+                </tbody>
             </table>
             <input type="submit" name="wp_popup_reset" value="Reset" class="button button-primary" onclick="return confirm_reset();"/>         
             <input type="submit" name="wp_popup_save" value="Update" class="button button-primary" />         
@@ -191,11 +232,11 @@
     </div>    
 </div>
 <script>
-    function confirm_reset(){
-        if (confirm("Are you sure you want to reset to defaults ?")){
-            return true;
-        }else{
-            return false;
-        }        
+function confirm_reset() {
+    if (confirm("Are you sure you want to reset to defaults ?")) {
+        return true;
+    } else {
+        return false;
     }
+}
 </script>
