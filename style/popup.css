@@ -60,6 +60,10 @@ root {
 #sc-close img{
     width: 30px;
 }
+.sc-popup .image,
+.sc-popup .video{
+    width: 50%;
+}
 .sc-popup-title{
     margin: -15px -15px 20px -15px;
     background: #005580;

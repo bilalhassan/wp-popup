@@ -32,12 +32,18 @@ $color = get_option('sc_popup_color');
                 <?php echo get_option('sc_popup_title'); ?>
             </div>
 
-            <div class="sc-popup-media left width50">
-                <?php echo get_option('sc_popup_media_link'); ?>
-            </div>
-
-            <div class="left width50">
-                <div class="sc-popup-subtitle">
+            <?php if(get_option('sc_popup_media_type') == 'video') : ?>
+                <div class="sc-popup-media left <?php echo get_option('sc_popup_media_type'); ?>">
+                    <?php echo get_option('sc_popup_media_link'); ?>
+                </div>
+            <?php elseif(get_option('sc_popup_media_type') == 'image') : ?>
+                <div class="sc-popup-media left <?php echo get_option('sc_popup_media_type'); ?>">
+                    <img src="<?php echo get_option('sc_popup_media_link'); ?>"/>
+                </div>
+            <?php endif; ?>
+            
+            <div class="left <?php echo get_option('sc_popup_media_type'); ?>">
+                <div class="sc-popup-subtitle <?php echo get_option('sc_popup_media_type'); ?>">
                     <?php echo get_option('sc_popup_subtitle'); ?>
                 </div>              
             </div>
@@ -51,8 +57,7 @@ $color = get_option('sc_popup_color');
             <div class="sc-popup-cta">
                 <a href="<?php echo get_option('sc_popup_cta_url'); ?>" class="button"><?php echo get_option('sc_popup_cta_text'); ?></a>
             </div>  
-
-
+            
         </div>
     </div>
 </div>
