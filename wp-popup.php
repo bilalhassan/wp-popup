@@ -26,20 +26,22 @@ function sc_popup_register_options(){
         'sc_popup_cta_url' => 'http://smartcatdesign.net',
         'sc_popup_media_type' => 'none',
         'sc_popup_media_link' => '',
-        'sc_popup_mode' => 'test',
-        'sc_popup_page' => 'all',
-        'sc_popup_days' => '7',
-        'sc_popup_color' => '#005580',
-        'sc_popup_facebook' => 'http://smartcatdesign.net',
-        'sc_popup_twitter' => 'http://smartcatdesign.net',
-        'sc_popup_gplus' => 'http://smartcatdesign.net',
-        'sc_popup_linkedin' => 'http://smartcatdesign.net',
-        'sc_popup_shortcode' => null
+//        'sc_popup_mode' => 'test',
+//        'sc_popup_page' => 'all',
+//        'sc_popup_days' => '7',
+//        'sc_popup_color' => '#005580',
+//        'sc_popup_facebook' => 'http://smartcatdesign.net',
+//        'sc_popup_twitter' => 'http://smartcatdesign.net',
+//        'sc_popup_gplus' => 'http://smartcatdesign.net',
+//        'sc_popup_linkedin' => 'http://smartcatdesign.net',
+//        'sc_popup_shortcode' => null
     );
     // check if option is set, if not, add it
     foreach($sc_popup_options as $option_name => $option_value){
         if(get_option($option_name) === false){
             add_option($option_name,$option_value);
+        }else{
+            update_option($option_name,$_POST[$option_name]);
         }
     }
 }
@@ -73,6 +75,19 @@ function sc_popup_menu(){
     add_options_page('WP Popup', 'WP Popup Settings', 'administrator', 'wp-popup.php', 'sc_popup_options');
 }
 function sc_popup_options(){
+    // when user saves
+    if(isset($_POST['wp_popup_save'])){
+        switch($_POST['wp_popup_save']){
+            case 'Update':
+                sc_popup_register_options();
+                break;
+            case 'reset':
+                sc_popup_register_options();
+                break;
+            default :
+                break;
+        }
+    }
     include_once 'inc/options.php';
 }
 

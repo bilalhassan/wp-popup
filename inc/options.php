@@ -73,6 +73,7 @@
         </div>
     </div>
     <div class="width25 right">
+        
         <table class="widefat">
             <thead>
                 <tr>
@@ -178,14 +179,23 @@
                             Image URL / Video Embed Code
                         </td>
                         <td>
-                            <input type="text" name="sc_popup_media_link" value="<?php get_option('sc_popup_media_link'); ?>"/>
+                            <input type="text" name="sc_popup_media_link" value="<?php echo get_option('sc_popup_media_link'); ?>"/>
                         </td>                        
                     </tr>
                 </tbody>
 
             </table>
-
-
+            <input type="submit" name="wp_popup_reset" value="Reset" class="button button-primary" onclick="return confirm_reset();"/>         
+            <input type="submit" name="wp_popup_save" value="Update" class="button button-primary" />         
         </form>
     </div>    
 </div>
+<script>
+    function confirm_reset(){
+        if (confirm("Are you sure you want to reset to defaults ?")){
+            return true;
+        }else{
+            return false;
+        }        
+    }
+</script>
