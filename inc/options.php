@@ -197,7 +197,31 @@
                     <tr>
                         <td>Shortcode</td>
                         <td>
-                            <input type="text" name="sc_popup_shortcode" value="<?php echo get_option('sc_popup_shortcode'); ?>"
+                            <input type="text" id="sc_popup_shortcode" name="sc_popup_shortcode" value="<?php echo get_option('sc_popup_shortcode'); ?>"
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="widefat">
+                <thead>
+                    <tr>
+                        <th colspan="2"><b>Timer & Setting</b></th>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <em>Setup the plugin options, ie: where, when and how often to run. Testing Mode shows the box every
+                            time you refresh so you can see the settings. Set to LIVE when you're done with settings</em>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mode</td>
+                        <td>
+                            <select name="sc_popup_mode">
+                                <option value="off" <?php echo (get_option('sc_popup_mode') == 'off') ? 'selected=selected' : ''; ?>>Off</option>
+                                <option value="test" <?php echo (get_option('sc_popup_mode') == 'test') ? 'selected=selected' : ''; ?>>Testing</option>
+                                <option value="live" <?php echo (get_option('sc_popup_mode') == 'live') ? 'selected=selected' : ''; ?>>Live</option>
+                            </select>
                         </td>
                     </tr>
                 </tbody>
@@ -232,11 +256,18 @@
     </div>    
 </div>
 <script>
-function confirm_reset() {
-    if (confirm("Are you sure you want to reset to defaults ?")) {
-        return true;
-    } else {
-        return false;
-    }
-}
+                function confirm_reset() {
+                    if (confirm("Are you sure you want to reset to defaults ?")) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+                jQuery(document).ready(function($) {
+                    $("#sc_popup_shortcode").focusout(function() {
+                        var shortcode = jQuery(this).val();
+                        shortcode = shortcode.replace(/"/g, "").replace(/'/g, "");
+                        jQuery(this).val(shortcode);
+                    });
+                });
 </script>

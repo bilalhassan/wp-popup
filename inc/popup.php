@@ -6,6 +6,7 @@
  */
 $color = get_option('sc_popup_color');
 $width = get_option('sc_popup_width');
+
 ?>
 <style type="text/css">
     .sc-popup-title,
