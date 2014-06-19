@@ -127,7 +127,7 @@ root {
     background: #404040;
 }
 @media only screen and (max-width: 760px){
-    #sc-popup-mobile{
-        display: none;
-    }
-}    
+    #sc-popup-dim{
+        display: none !important;
+    }      
+}

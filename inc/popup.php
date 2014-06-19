@@ -62,4 +62,18 @@ $width = get_option('sc_popup_width');
         </div>
     </div>
 </div>
+<script>
+jQuery(document).ready(function($) {
+    var margin = 0;
+    $('#sc-popup-dim').delay(<?php echo get_option('sc_popup_delay'); ?>000).fadeIn(300, function() {
+        margin = $('#sc-popup').width() / 2;
+        $('#sc-popup').css({'marginLeft': -margin}).fadeIn(350);
+    });
 
+    $('#sc-close').click(function() {
+        $('#sc-popup').fadeOut(350, function() {
+            $('#sc-popup-dim').fadeOut(300);
+        });
+    });
+});
+</script>
