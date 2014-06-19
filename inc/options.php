@@ -65,7 +65,7 @@
         -moz-box-shadow: 0 0 3px #333;
         -webkit-box-shadow: 0 0 3px #333;
     }
-    
+
     .sc_popup_mode_off{
         background: #F54412;
     }
@@ -157,14 +157,13 @@
             <table class="widefat   ">
                 <tr>
                     <th>
-                        <?php
-                            if(get_option('sc_popup_mode') == 'off'){ ?>
-                                <span class="sc_popup_mode sc_popup_mode_off"></span> Timed Popup is currently Off.
-                            <?php }elseif(get_option('sc_popup_mode') == 'test'){ ?>
-                                <span class="sc_popup_mode sc_popup_mode_test"></span> Timed Popup is currently in Testing mode. You will see the popup on every page load.    
-                            <?php }else{ ?>
-                                <span class="sc_popup_mode sc_popup_mode_live"></span> Timed Popup is currently in Live mode. Users will see the popup every <b><?php echo get_option('sc_popup_days');?> day(s)</b>
-                            <?php } ?>
+                        <?php if (get_option('sc_popup_mode') == 'off') { ?>
+                            <span class="sc_popup_mode sc_popup_mode_off"></span> Timed Popup is currently Off.
+                        <?php } elseif (get_option('sc_popup_mode') == 'test') { ?>
+                            <span class="sc_popup_mode sc_popup_mode_test"></span> Timed Popup is currently in Testing mode. You will see the popup on every page load.    
+                        <?php } else { ?>
+                            <span class="sc_popup_mode sc_popup_mode_live"></span> Timed Popup is currently in Live mode. Users will see the popup every <b><?php echo get_option('sc_popup_days'); ?> day(s)</b>
+                        <?php } ?>
                     </th>
                 </tr>
             </table>
@@ -244,7 +243,7 @@
                     </tr>
                     <tr>
                         <td colspan="2"> <em>Setup the plugin options, ie: where, when and how often to run. Testing Mode shows the box every
-                            time you refresh so you can see the settings. Set to LIVE when you're done with settings</em>
+                                time you refresh so you can see the settings. Set to LIVE when you're done with settings</em>
                         </td>
                     </tr>
                 </thead>
@@ -312,20 +311,20 @@
     </div>    
 </div>
 <script>
-                function confirm_reset() {
-                    if (confirm("Are you sure you want to reset to defaults ?")) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                }
-                jQuery(document).ready(function($) {
-                    $("#sc_popup_shortcode").focusout(function() {
-                        var shortcode = jQuery(this).val();
-                        shortcode = shortcode.replace(/"/g, "").replace(/'/g, "");
-                        jQuery(this).val(shortcode);
-                    });
-           
-                });
+    function confirm_reset() {
+        if (confirm("Are you sure you want to reset to defaults ?")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    jQuery(document).ready(function($) {
+        $("#sc_popup_shortcode").focusout(function() {
+            var shortcode = jQuery(this).val();
+            shortcode = shortcode.replace(/"/g, "").replace(/'/g, "");
+            jQuery(this).val(shortcode);
+        });
+
+    });
 
 </script>
