@@ -224,6 +224,12 @@
                             </select>
                         </td>
                     </tr>
+                    <tr>
+                        <td>Show popup once every</td>
+                        <td>
+                            <input type="text" class="width25" name="sc_popup_days" value="<?php echo get_option('sc_popup_days'); ?>"/>day(s)
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="widefat">
@@ -248,6 +254,15 @@
                             <input type="text" class="width25" name="sc_popup_width" value="<?php echo get_option('sc_popup_width'); ?>"/>px
                         </td>
                     </tr>
+                    <tr>
+                        <td>Display on Mobile</td>
+                        <td>
+                            <select name="sc_popup_mobile">
+                                <option value="show" <?php echo (get_option('sc_popup_mobile') == 'show') ? 'selected=selected' : ''; ?>>Show</option>
+                                <option value="hide" <?php echo (get_option('sc_popup_mobile') == 'hide') ? 'selected=selected' : ''; ?>>Hide</option>
+                            </select>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <input type="submit" name="wp_popup_reset" value="Reset" class="button button-primary" onclick="return confirm_reset();"/>         
@@ -269,5 +284,7 @@
                         shortcode = shortcode.replace(/"/g, "").replace(/'/g, "");
                         jQuery(this).val(shortcode);
                     });
+           
                 });
+
 </script>

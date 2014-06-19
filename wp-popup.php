@@ -30,7 +30,8 @@ function sc_popup_register_options() {
         'sc_popup_width' => '400',
         'sc_popup_mode' => 'test',
 //        'sc_popup_page' => 'all',
-        'sc_popup_days' => '7',
+        'sc_popup_days' => '0',
+        'sc_popup_mobile' => 'show',
         'sc_popup_color' => '#005580',
 //        'sc_popup_facebook' => 'http://smartcatdesign.net',
 //        'sc_popup_twitter' => 'http://smartcatdesign.net',
@@ -109,7 +110,6 @@ function sc_popup_options() {
 }
 
 add_action('wp_head', 'show_popup');
-
 function show_popup() {
     if (get_option('sc_popup_mode') != 'off') {
         wp_register_style('sc_popup_style', plugins_url() . '/wp-timed-popup/style/popup.css', false, '1.0');
@@ -130,10 +130,12 @@ function show_popup() {
     }
 }
 
+// set cookie for timer
 add_action('init', 'set_newuser_cookie');
 function set_newuser_cookie() {
-    if (!is_admin() && !isset($_COOKIE['newvisitor'])) {
-        setcookie('newvisitor', 1, time() + 3600 * 24 * 100, COOKIEPATH, COOKIE_DOMAIN, false);
+    if (!isset($_COOKIE['newvisitor'])) {
+        $expiry_time = time() + 3600 * 24 * get_option('sc_popup_days');
+        setcookie('newvisitor', 1, $expiry_time, COOKIEPATH, COOKIE_DOMAIN, false);
     }
 }
 
