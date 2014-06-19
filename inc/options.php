@@ -54,6 +54,27 @@
     .choose-progress{
         display: none;
     }
+    .sc_popup_mode{
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        position: relative;
+        top: 2px;
+        box-shadow: 0 0 3px #333;
+        -moz-box-shadow: 0 0 3px #333;
+        -webkit-box-shadow: 0 0 3px #333;
+    }
+    
+    .sc_popup_mode_off{
+        background: #F54412;
+    }
+    .sc_popup_mode_live{
+        background: #84E11F;
+    }
+    .sc_popup_mode_test{
+        background: #FF9717;
+    }
     .left{ float: left;}
     .right {float: right;}
     .center{text-align: center;}
@@ -133,6 +154,20 @@
     </div>
     <div class="width70 left">
         <form name="post_form" method="post" action="" enctype="multipart/form-data">
+            <table class="widefat   ">
+                <tr>
+                    <th>
+                        <?php
+                            if(get_option('sc_popup_mode') == 'off'){ ?>
+                                <span class="sc_popup_mode sc_popup_mode_off"></span> Timed Popup is currently Off.
+                            <?php }elseif(get_option('sc_popup_mode') == 'test'){ ?>
+                                <span class="sc_popup_mode sc_popup_mode_test"></span> Timed Popup is currently in Testing mode. You will see the popup on every page load.    
+                            <?php }else{ ?>
+                                <span class="sc_popup_mode sc_popup_mode_live"></span> Timed Popup is currently in Live mode. Users will see the popup every <b><?php echo get_option('sc_popup_days');?> day(s)</b>
+                            <?php } ?>
+                    </th>
+                </tr>
+            </table>
             <table class="widefat">
                 <thead>
                     <tr>
