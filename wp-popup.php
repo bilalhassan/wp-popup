@@ -110,6 +110,11 @@ function sc_popup_options() {
     include_once 'inc/options.php';
 }
 
+add_action('wp_enqueue_scripts','load_sc_popup_scripts');
+function load_sc_popup_scripts(){
+    wp_enqueue_script('sc_popup_script', plugins_url() . '/wp-timed-popup/script/popup.js', array('jquery'), '1.0');
+}
+
 add_action('wp_head', 'show_popup');
 function show_popup() {
     if (get_option('sc_popup_mode') != 'off') {
@@ -119,7 +124,7 @@ function show_popup() {
         wp_enqueue_style('sc_popup_font');
         wp_enqueue_style('sc_popup_style');
 
-        wp_enqueue_script('sc_popup_script', plugins_url() . '/wp-timed-popup/script/popup.js', array('jquery'), '1.0');
+        
 
         if (get_option('sc_popup_mode') == 'test') {
             include_once 'inc/popup.php';
@@ -130,6 +135,7 @@ function show_popup() {
         }
     }
 }
+
 
 // set cookie for timer
 add_action('init', 'set_newuser_cookie');
