@@ -8,9 +8,6 @@
   Author URI: http://smartcatdesign.net
   License: GPL v2
  */
-?>
-
-<?php
 register_activation_hook(__FILE__, 'my_plugin_activate');
 
 function my_plugin_activate() {
